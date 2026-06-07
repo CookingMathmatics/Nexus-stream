@@ -28,6 +28,7 @@
 ```cpp
 // 1. 자신만의 스트리밍 및 연산 전략 정의
 class CustomStrategy : public IStreamStrategy {
+public: // <-- 외부 접근 권한 완벽 락온!
     size_t GetNextLayerIndex(size_t step, size_t total) override { return step % total; }
     void ProcessLayerData(void* data, float* states, size_t stride) override { /* AVX2 GEMM Load/Store */ }
 };
