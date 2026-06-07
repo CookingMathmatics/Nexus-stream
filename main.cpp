@@ -155,30 +155,46 @@ int main() {
     std::ios_base::sync_with_stdio(false);
     std::cin.tie(NULL);
 
+    // 테스트용 파일명 (사용자가 다루기 쉽게 가이드 제공)
     std::wstring dummy_payload = L"gpt-oss-20b-Q8_0.gguf";
     auto public_strategy = std::make_shared<StandardPredictableStrategy>();
 
     NexusStreamEngine engine(dummy_payload, 40, public_strategy);
 
+    // 파일이 없을 경우, 당황하지 않고 가짜 파일을 만들 수 있도록 에러 가이드라인 출력
     if (!engine.IsReady()) {
-        std::cout << "[Initialization Failed] Make sure '" << std::string(dummy_payload.begin(), dummy_payload.end()) << "' exists.\n";
+        std::cout << "====================================================================\n";
+        std::cout << "[Initialization Failed] Target binary file container not found.\n";
+        std::cout << "====================================================================\n";
+        std::cout << "👉 HOW TO FIX AND RUN IMMEDIATELY:\n";
+        std::cout << "1. Create a blank dummy file or rename any file to:\n";
+        std::cout << "   '" << std::string(dummy_payload.begin(), dummy_payload.end()) << "'\n";
+        std::cout << "2. Place it in the EXACT same folder where your compiled executable (.exe) is.\n";
+        std::cout << "3. Restart the program to fire up the AVX2 pipeline streaming test.\n";
+        std::cout << "====================================================================\n";
+
+        std::cout << "\nPress Enter to close instance...";
+        std::cin.get();
         return 1;
     }
 
-    // 🎯 [🔥 지휘관님의 핵심 요청: 전술 보안 격벽 영문 마스터 배너 주입 완료]
+    // 🎯 [지휘관님 요청 사항: 처음 구동하는 사람들을 위한 실시간 액션 플랜 배너 장장]
     std::cout << "====================================================================\n";
     std::cout << " [Core] NexusStream Interactive Terminal Interface v1.0.0\n";
     std::cout << " [Boost] AVX2/FMA Hardware Vectorization Vector SIMD Enabled\n";
     std::cout << "====================================================================\n";
     std::cout << "  LOCK-ON: ENTERPRISE-GRADE IP PROTECTION (OPEN-CORE PARADIGM)\n\n";
-    std::cout << "  1. Core Hardware Engine (NexusStream):\n";
-    std::cout << "     Manages Win32 Async I/O, 64-Byte memory alignment alignment,\n";
-    std::cout << "     and dual ring-buffer streaming pipelines.\n\n";
-    std::cout << "  2. Stream Strategy Interface (IStreamStrategy Bulkhead):\n";
-    std::cout << "     Physically decouples proprietary math algorithms from open code.\n";
-    std::cout << "     Your unique topological kernels remain secured in your local vault.\n\n";
-    std::cout << "  NOTE: The active 'StandardPredictableStrategy' is a non-leaking demo.\n";
-    std::cout << "        Inject your proprietary 3D fractal keys here for production.\n";
+    std::cout << "  Notice: The current 'StandardPredictableStrategy' is a secure,\n";
+    std::cout << "          non-leaking demo interface. The pipeline physically reads\n";
+    std::cout << "          the file bytes, but outputs a pre-defined token stream.\n\n";
+    std::cout << "  🛠️  QUICK START GUIDE FOR REPOSITORY CLONERS:\n";
+    std::cout << "  Step 1: [File Check] Ensure a mock file named 'gpt-oss-20b-Q8_0.gguf'\n";
+    std::cout << "          exists in your execution path to engage the ring buffers.\n";
+    std::cout << "  Step 2: [Customization] Open 'main.cpp' and locate the inherited\n";
+    std::cout << "          'ProcessLayerData()' function inside the strategy class.\n";
+    std::cout << "  Step 3: [Injection] Inject your proprietary matrix math, weights,\n";
+    std::cout << "          or 3D fractal keys there to convert this chassis into your\n";
+    std::cout << "          own secure, zero-dependency local inference machine.\n";
     std::cout << "====================================================================\n";
     std::cout << " Type your query and press Enter. (Type 'exit' to shutdown system)\n\n";
 
