@@ -84,4 +84,5 @@ arm-none-eabi-g++ -T linker.ld startup.o main.o -o CoreMicro.elf -nostdlib
 3. **버스 결정론 수호 (Strict 64-Byte Alignment):** CI/CD 툴체인 오염이나 주소 공간 교란을 통한 가속 스로틀링 공격을 방어하기 위해,
 링커 스크립트 레벨에서 메모리 섹션 경계선을 64바이트(512-bit 버스) 블록 단위로 rigid하게 가두어 통제(`Confinement`)합니다.
 
-*Notice: 가속 파이프라인의 물리적 방어선 무결성은 100% 공개 검증되나, 이 격벽 뒤에 숨겨진 진짜 3진법(Z_3) 한글 위상 수학 가속 커널 원본은 안전하게 락킹(Lock-boxing)되어 있습니다.*
+*Notice: 가속 파이프라인의 물리적 방어선 무결성은 100% 공개 검증되나, 이 격벽 뒤에 숨겨진
+진짜 3진법(Z_3) 한글 위상 수학 가속 커널 원본은 안전하게 락킹(Lock-boxing)되어 있습니다.*
