@@ -50,7 +50,8 @@ arm-none-eabi-g++ -T linker.ld startup.o main.o -o CoreMicro.elf -nostdlib
 
 ## 🔌 Verified Physical Hardware Targets (실물 칩셋 호환성)
 
-본 베어메탈 가속 커널의 메모리 맵(16 KiB SRAM / 64 KiB Flash)과 Thumb 명령어 세트는 전 세계 스마트 가전, 자동차 센서, IoT 모듈에 가장 보편적으로 양산되어 있는 **ARM Cortex-M0 / M0+ / M3 기반의 초소형 32비트 MCU** 실물 보드와 100% 호환됩니다. 
+본 베어메탈 가속 커널의 메모리 맵(16 KiB SRAM / 64 KiB Flash)과 Thumb 명령어 세트는 전 세계 스마트 가전,
+자동차 센서, IoT 모듈에 가장 보편적으로 양산되어 있는 **ARM Cortex-M0 / M0+ / M3 기반의 초소형 32비트 MCU** 실물 보드와 100% 호환됩니다. 
 
 실물 환경에서 즉시 바이너리(`CoreMicro.bin`)를 플래싱하여 오버헤드를 측정하고 싶은 엔지니어들은 아래의 실물 개발 보드 라인업을 권장합니다.
 
@@ -63,7 +64,8 @@ arm-none-eabi-g++ -T linker.ld startup.o main.o -o CoreMicro.elf -nostdlib
   * `LPC1114` 시리즈 (Cortex-M0 베어메탈 제어 모듈)
   * `ATSAMD21` 시리즈 (Cortex-M0+ 기반 임베디드 코어)
 
-> 💡 **실물 칩셋 디버깅 가이드:** 실물 MCU 보드에 포팅 시, 각 제조사가 제공하는 시스템 클록 초기화 파일(`system_stm32f0xx.c` 등)을 결합하거나, 본 저장소의 `startup.s`에 타깃 보드의 벡터 테이블 주소를 매핑하여 ST-Link 또는 J-Link 장비로 다이렉트 주입(Flashing)할 수 있습니다
+> 💡 **실물 칩셋 디버깅 가이드:** 실물 MCU 보드에 포팅 시, 각 제조사가 제공하는 시스템 클록 초기화 파일(`system_stm32f0xx.c` 등)을
+결합하거나, 본 저장소의 `startup.s`에 타깃 보드의 벡터 테이블 주소를 매핑하여 ST-Link 또는 J-Link 장비로 다이렉트 주입(Flashing)할 수 있습니다
 
 ---
 
