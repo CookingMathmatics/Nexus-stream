@@ -22,8 +22,10 @@ Idx Name          Size      VMA       LMA       File off  Algn
                    CONTENTS, ALLOC, LOAD, DATA
   2 .bss           00001040  20000000  080000d8  00002000  2**6
                    ALLOC
-🎯 Key Architectural MetricsTarget Memory Boundary: 64 KiB Flash / 16 KiB SRAMPure Execution Size (.text): 단 216바이트 (0.2 KiB)Static Memory Confinement (.bss): 4.06 KiB (동적 할당 malloc/new 0.00% 격리)
-Bus Vector Alignment: 26 (하드웨어 캐시라인 미스 방지를 위한 64비트/64바이트 버스 경계선 강제 정렬)🔒 Security Notice & Data Confinement (보안 공지)Hardware Abstraction Layer (HAL)
+🎯 Key Architectural MetricsTarget Memory Boundary: 64 KiB Flash / 16 KiB SRAMPure Execution Size (.text): 단 216바이트 (0.2 KiB)
+Static Memory Confinement (.bss): 4.06 KiB (동적 할당 malloc/new 0.00% 격리)
+Bus Vector Alignment: 26 (하드웨어 캐시라인 미스 방지를 위한 64비트/64바이트 버스 경계선 강제 정렬)
+🔒 Security Notice & Data Confinement (보안 공지)Hardware Abstraction Layer (HAL)
 Reference: 본 폴더에 공개된 main.cpp 소스코드는 하드웨어 나눗셈기(__aeabi_uidivmod)가 탑재되지 않은 초소형 코어에서
 "어떻게 2의 거듭제곱 수(2^n) 정렬을 통해 무거운 나머지 연산자(%)를 단 1사이클짜리 고속 비트 AND(&) 마스킹으로 치환하는가"에
 대한 메모리 구조적 메커니즘을 증명하기 위한 추상화 프레임워크 레퍼런스입니다.
