@@ -24,12 +24,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                    ALLOC
 🎯 Key Architectural MetricsTarget Memory Boundary: 64 KiB Flash / 16 KiB SRAMPure Execution Size (.text): 단 216바이트 (0.2 KiB)Static Memory Confinement (.bss): 4.06 KiB (동적 할당 malloc/new 0.00% 격리)
 Bus Vector Alignment: 26 (하드웨어 캐시라인 미스 방지를 위한 64비트/64바이트 버스 경계선 강제 정렬)🔒 Security Notice & Data Confinement (보안 공지)Hardware Abstraction Layer (HAL)
-Reference: 본 폴더에 공개된 main.cpp 소스코드는 하드웨어 나눗셈기(__aeabi_uidivmod)가 탑재되지 않은 초소형 코어에서 "어떻게 2의 거듭제곱 수(2^n) 정렬을 통해 무거운 나머지 연산자(%)를 단 1사이클짜리 고속 비트 AND(&) 마스킹으로 치환하는가"에
+Reference: 본 폴더에 공개된 main.cpp 소스코드는 하드웨어 나눗셈기(__aeabi_uidivmod)가 탑재되지 않은 초소형 코어에서
+"어떻게 2의 거듭제곱 수(2^n) 정렬을 통해 무거운 나머지 연산자(%)를 단 1사이클짜리 고속 비트 AND(&) 마스킹으로 치환하는가"에
 대한 메모리 구조적 메커니즘을 증명하기 위한 추상화 프레임워크 레퍼런스입니다.
 Algorithm Encapsulation:바이트 스트림 인풋을 수론적 토폴로지 공간 격자로 사상하고 분해하는 핵심 Z_p^3 기하학 파이프라인 매트릭스는
 내부 알고리즘 자산 보안을 위해 더미 비트 연산(Dummy Bit-masking)으로 캡슐화(Masking) 처리되어 있습니다.
-Binary Verification:알고리즘이 마스킹되지 않은 100% 무결한 가속 성능 스펙 및 캐시라인 정렬 스탯의 실물 검증이 필요하신 아키텍트께서는 CoreMicro.bin 순수 머신코드 바이너리를 가상 칩셋이나 타깃 보드 하드웨어에 다이렉트로 플래싱하여 영수증 스펙을 상호 검증하실 수 있습니다.
-🛠️ Build & Injection Instruction프로파일 명세서와 동일한 216바이트 기계어 레이아웃을 직접 사출하려는 경우, 표준 툴체인을 통해 아래 시퀀스로 빌드를 집행합니다.
+Binary Verification:알고리즘이 마스킹되지 않은 100% 무결한 가속 성능 스펙 및 캐시라인 정렬 스탯의 실물 검증이 필요하신
+아키텍트께서는 CoreMicro.bin 순수 머신코드 바이너리를 가상 칩셋이나 타깃 보드 하드웨어에 다이렉트로 플래싱하여 영수증 스펙을 상호 검증하실 수 있습니다.
+🛠️ Build & Injection Instruction프로파일 명세서와 동일한 216바이트 기계어 레이아웃을
+직접 사출하려는 경우, 표준 툴체인을 통해 아래 시퀀스로 빌드를 집행합니다.
 
 Bash# 1. Startup 어셈블리 빌드 (스택 포인터 초기화)
 
