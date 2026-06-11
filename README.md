@@ -4,6 +4,8 @@
 
 기존의 무거운 가상화 레이어나 OS의 자동 `mmap` 제어에 의존하지 않고, Win32 API와 하드웨어 최적화를 통해 시스템 자원을 극한으로 사수하며 안전한 실시간 데이터 파이프라인을 구축합니다.
 
+NexusStream is an experimental local-first AI inference chassis designed to enable private, offline SLM deployment on commodity hardware.
+
 ## 🚀 Key Features
 
 - **Zero-Dependency Architecture**: 외부 라이브러리, 파이썬 패키지 일절 배제. 오직 Pure C++ 표준 표준과 Win32 커널 API만으로 구동되어 공급망 취약점(Supply Chain Attack) 원천 차단.
